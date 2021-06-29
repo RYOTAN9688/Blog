@@ -17,7 +17,7 @@ export const getStaticProps = async () => {//ビルド（本番用アプリ）�
 }
 
 export default function Home({ posts }) {
-  console.log(posts)
+
   return (
     <Layout pageTitle={"home"} >
       < Link href="/about">
@@ -25,9 +25,9 @@ export default function Home({ posts }) {
       </Link >
       <ul>
         {
-          posts.map(post => {
+          posts.map(({ title }) => {
             return <li>
-              {post}
+              {title}
             </li>
           })
         }

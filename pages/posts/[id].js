@@ -5,13 +5,11 @@ import { getIds, getPostById } from "../../lib/posts";
 export const getStaticPaths = async () => {
     return {
         paths: getIds(),
-        fallback: false
+        fallback: false//404を表示する
     }
 }
 
-export default function Post() {
-    return <Layout></Layout>
-}
+
 
 export const getStaticProps = async ({ params }) => {
     return {
@@ -21,9 +19,9 @@ export const getStaticProps = async ({ params }) => {
     }
 }
 
-export default function post({ post }) {
+export default function Post({ post }) {
     return (
-        <Layout>
+        <Layout pageTitle={'Article'}>
             <h2>{post.title}</h2>
             <p>{post.content}</p>
         </Layout>
